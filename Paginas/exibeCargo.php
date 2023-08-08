@@ -1,7 +1,7 @@
 <?php 
 
 require_once '../Classe/DAO/insert_Cargo.Class.php';
-require_once '../Classe/DAO/Cargo.Class.php';
+require_once '../Classe/Entidade/Cargo.Class.php';
 
 $Cadastrar= new Cadastro_Cargo();
 
