@@ -3,14 +3,14 @@
  class Cargo{
      
     private $nome;
-    private $cargo;/*1,2,3*/
+    private $tipoCargo;/*1,2,3*/
     
     private $especialidade;
     private $sub_Esp;
     private $valB_Hora;/*valor basico hora*/
     private $nivel;
-    private $Formac;   
-    private $Experi;
+    private $exp_Formac;   
+    private $exp_Experi;
     private $descript;/*descrição*/
     /**
      * @return mixed
@@ -31,17 +31,17 @@
     /**
      * @return mixed
      */
-    public function getCargo()
+    public function getTipoCargo()
     {
-        return $this->cargo;
+        return $this->tipoCargo;
     }
 
     /**
      * @param mixed $cargo
      */
-    public function setCargo($cargo)
+    public function setTipoCargo($cargo)
     {
-        $this->cargo = $cargo;
+        $this->tipoCargo = $cargo;
     }
 
     /**
@@ -119,15 +119,15 @@
     /**
      * @param mixed $exp_Formac
      */
-    public function setFormac($Formac)
+    public function setExp_Formac($exp_Formac)
     {
-        $this->Formac = $Formac;
+        $this->exp_Formac = $exp_Formac;
     }
 
     /**
      * @return mixed
      */
-    public function getExperi()
+    public function getExp_Experi()
     {
         return $this->exp_Experi;
     }
@@ -135,9 +135,9 @@
     /**
      * @param mixed $exp_Experi
      */
-    public function setExperi($Experi)
+    public function setExp_Experi($exp_Experi)
     {
-        $this->Experi = $Experi;
+        $this->exp_Experi = $exp_Experi;
     }
 
     /**

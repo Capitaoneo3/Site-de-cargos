@@ -130,7 +130,7 @@ select{
 <body>
 <div>
 
-    <form action="paginas/exibeCargo.php" method="POST">    
+    <form action="forms/insereCargo.php" method="POST">    
 
     <fieldset>
 
