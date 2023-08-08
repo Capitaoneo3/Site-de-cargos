@@ -1,6 +1,6 @@
 <?php 
-require_once '../Classe/DAO/CargoQuery.php';
-require_once '../Classe/Entidade/Cargo.php';
+require_once '../classes/dao/CargoQuery.php';
+require_once '../classes/Cargo.php';
 
 
 $cargoQuery= new CargoQuery();

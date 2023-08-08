@@ -1,5 +1,4 @@
 <?php 
-require_once '../Classe/Entidade/Cargo.php';
 require_once 'Conexao.php';
 
 class CargoQuery {
@@ -26,11 +25,17 @@ class CargoQuery {
             // Verifica se foram retornadas linhas
             if (mysqli_affected_rows($conn) > 0) {
                 echo "Query bem-sucedida. Foram retornadas " . mysqli_affected_rows($conn) . " linhas.";
+                echo '<a href="../index.php"><button>Concluir</button></a>
+            ';
             } else {
                 echo "Query bem-sucedida. Nenhuma linha retornada.";
+                echo '<a href="../index.php"><button>Concluir</button></a>
+            ';
             }
         } else {
             echo "Falha na execução da query: " . mysqli_error($conn);
+            echo '<a href="../index.php"><button>Concluir</button></a>
+            ';
         }
         
         // Fecha a conexão
