@@ -1,6 +1,6 @@
 <?php 
-require_once '../classes/dao/CargoQuery.php';
-require_once '../classes/Cargo.php';
+require_once '../../classes/dao/CargoQuery.php';
+require_once '../../classes/Cargo.php';
 
 
 $cargoQuery= new CargoQuery();
@@ -15,7 +15,7 @@ $cargo->setExp_Formac($_POST['formacao']);
 $cargo->setExp_Experi($_POST['experiencia']);
 $cargo->setDescript($_POST['descricao']);
 
-$cargoQuery->insereCargo($cargo);
+$cargoQuery->Cargo($cargo);
 
 
 ?>
