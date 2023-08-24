@@ -1,24 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/home.css"></link>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Home</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
 
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/home.css">
+  </link>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Home</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script>
+    $("button[name='Lista']").mousedown(function () {
+      window.location.href = 'http://localhost/Site-de-cargos/pages/list_cargo.php';
+
+   })
+
+    $("button[name='Cadastro']").mousedown(function () {
+      window.location.href = 'http://localhost/Site-de-cargos/pages/forms/cadastroCargo.html';
+
+    })
+  </script>
+
+
+  </script>
 </head>
+
 <body>
-    <div class="vertical-center">
-        <div class="container">
-          <div class="row justify-content-center align-items-center">
-            <div class="col-md-4">
-              <button class="btn btn-primary btn-block">Lista</button>
-              <button class="btn btn-secondary btn-block"><a href="pages\forms\CadastroCargo.php">Cadastro</a></button>
-            </div>
-          </div>
+  <div class="vertical-center">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-md-4">
+          <button name="Lista" class="btn btn-primary btn-block">Lista</button>
+          <button name="Cadastro" class="btn btn-secondary btn-block">Cadastro</button>
         </div>
       </div>
+    </div>
+  </div>
 </body>
+
 </html>

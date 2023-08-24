@@ -1,58 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro Cargo</title>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script>
-    var esconderCargoEspecialidade = function(){
-    //mudar o elemento display para none através do jquery
-    $("#cargo_especialidade_hid").css('display', 'none')
-}
-
-var aparecerCargoEspecialidade= function(){
-    
-    //mudar o elemento display para block através do jquery
-    $("#cargo_especialidade_hid").css('display', 'block')
-}
-
-//essa função só será chamada após a página ter sido carregada
-$(document).ready(function(){
-
-    $("input[name='tipo_cargo']").change(function(){
-        //atribui par variavel input qual objeto radio trocou de valor 
-        var input = $(this)//$(this) aponta para as tags carregadas com name 'tipo_cargo'
-
-        var placeHolderText = "Selecione ";
-        if(input.val() == 2){/*funcao jquey, quando usado em um objeto  
-        DOM retorna um value que estiver na tag" input = $(this)"*/
-            aparecerCargoEspecialidade();
-            $("#nome_cargo").html("Nome da especialidade");
-            $("#label_cargo_especialidade").html("Selecione um cargo")
-            $("#cargo_especialidade_placeholder").html(placeHolderText+" um cargo");
-            //TODO carregar cargos e preencher select
-        }else if(input.val() == 3){
-            aparecerCargoEspecialidade();
-            $("#nome_cargo").html("Nome da sub-especialidade");
-            $("#label_cargo_especialidade").html("Selecione uma especialidade")
-            $("#cargo_especialidade_placeholder").html(placeHolderText+" uma especialidade");                  
-            //TODO carregar especialidades e preencher select
-        }
-        else{
-            $("#nome_cargo").html("Nome do cargo");
-            esconderCargoEspecialidade();
-        }
-    })
-
-
-})
- 
-</script>
-
-    <style>
+    <head>
+        <style>
         #cargo_especialidade_hid {
             display: none;
         }
@@ -131,99 +81,185 @@ $(document).ready(function(){
             margin-bottom: 20px;
         }
     </style>
-</head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            />
+        <link rel="stylesheet" href="../../styles/cadastro.css" />
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
 
-<body>
+        <title>Cadastro Cargo</title>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous">
+        </script>
+        <script> 
+        var esconderCargoEspecialidade = function () {
+            //mudar o elemento display para none através do jquery
+            $("#cargo_especialidade_hid").css('display', 'none')
+        }
 
-    <form action="pages/forms/insereCargo.php" method="POST">
+        var aparecerCargoEspecialidade = function () {
 
-        <fieldset>
+            //mudar o elemento display para block através do jquery
+            $("#cargo_especialidade_hid").css('display', 'block')
+        }
 
-            <legend>Cadastrar Cargos</legend>
+        //essa função só será chamada após a página ter sido carregada
+        $(document).ready(function () {
 
-            <div class="custom-control custom-radio tipo">
+            $("input[name='tipo_cargo']").change(function () {
+                //atribui par variavel input qual objeto radio trocou de valor 
+                var input = $(this)//$(this) aponta para as tags carregadas com name 'tipo_cargo'
 
-                <div class="radio-div">
-                    <input type="radio" name="tipo_cargo" id="customRadio1" class="custom-control-input" value="1"
-                        checked><!--atuali-->
-                    <label class="custom-control-label" for="customRadio1">Cargo</label>
-                </div>
+                var placeHolderText = "Selecione ";
+                if (input.val() == 2) {/*funcao jquey, quando usado em um objeto  
+        DOM retorna um value que estiver na tag" input = $(this)"*/
+                    aparecerCargoEspecialidade();
+                    $("#nome_cargo").html("Nome da especialidade");
+                    $("#label_cargo_especialidade").html("Selecione um cargo")
+                    $("#cargo_especialidade_placeholder").html(placeHolderText + " um cargo");
+                    //TODO carregar cargos e preencher select
+                } else if (input.val() == 3) {
+                    aparecerCargoEspecialidade();
+                    $("#nome_cargo").html("Nome da sub-especialidade");
+                    $("#label_cargo_especialidade").html("Selecione uma especialidade")
+                    $("#cargo_especialidade_placeholder").html(placeHolderText + " uma especialidade");
+                    //TODO carregar especialidades e preencher select
+                }
+                else {
+                    $("#nome_cargo").html("Nome do cargo");
+                    esconderCargoEspecialidade();
+                }
+            })
 
-                <div class="radio-div" style="margin-left: 20%">
-                    <input type="radio" name="tipo_cargo" id="customRadio2" class="custom-control-input"
-                        value="2"><!--atuali-->
-                    <label class="custom-control-label" for="customRadio2">Especialidade</label>
-                </div>
 
-                <div class="radio-div" style="margin-left: 15%">
-                    <input type="radio" name="tipo_cargo" id="customRadio3" class="custom-control-input"
-                        value="3"><!--atuali-->
-                    <label class="custom-control-label" for="customRadio3">Sub-especialidade</label>
-                </div>
+        })
 
-            </div>
-            <div>
+    </script>
+    </head>
 
-                <label for="nome_cargo" id="nome_cargo" class="title">Nome do cargo</label>
-                <input type="text" class="form-control" name="nome_cargo">
+    <body>
+        <div class="vertical-center">
+            <form action="cadastroCargo.php" method="POST">
 
-            </div>
+                <fieldset>
 
-            <div>
-                <label for="valor_hora" class="title">Valor básico / hora</label>
-                <input type="number" class="form-control" name="valor_hora">
-            </div>
+                    <legend>Cadastrar Cargos</legend>
 
-            <div id="cargo_especialidade_hid">
-                <label for="especialidade" id="label_cargo_especialidade" class="title"></label>
-                <select id="especialidade" name="especialidade" class="form-control"><!--atuali-->
-                    <option hidden value="default" id="cargo_especialidade_placeholder">selecione um cargo</option>
-                    <option value="valor1">programador</option>
-                    <option value="valor2">despenceiro</option>
-                    <option value="valor3">motorista</option>
-                </select>
+                    <div class="custom-control custom-radio tipo">
 
-            </div>
+                        <div class="radio-div">
+                            <input type="radio" name="tipo_cargo"
+                                id="customRadio1" class="custom-control-input"
+                                value="1"
+                                checked><!--atuali-->
+                            <label class="custom-control-label"
+                                for="customRadio1">Cargo</label>
+                        </div>
 
-            <div class="title">
-                <label class="title">Nível</label>
-            </div>
-            <div class="custom-control custom-radio tipo">
-                <div class="radio-div-2">
-                    <input type="radio" name="nivel" id="customRadio4" class="custom-control-input" value="1"><!---->
-                    <label for="customRadio4" class="custom-control-label">Fundamental</label>
-                </div>
+                        <div class="radio-div" style="margin-left: 20%">
+                            <input type="radio" name="tipo_cargo"
+                                id="customRadio2" class="custom-control-input"
+                                value="2"><!--atuali-->
+                            <label class="custom-control-label"
+                                for="customRadio2">Especialidade</label>
+                        </div>
 
-                <div class="radio-div-2">
-                    <input type="radio" name="nivel" id="customRadio5" class="custom-control-input" value="2"><!---->
-                    <label for="customRadio5" class="custom-control-label">Médio</label>
-                </div>
+                        <div class="radio-div" style="margin-left: 15%">
+                            <input type="radio" name="tipo_cargo"
+                                id="customRadio3" class="custom-control-input"
+                                value="3"><!--atuali-->
+                            <label class="custom-control-label"
+                                for="customRadio3">Sub-especialidade</label>
+                        </div>
 
-                <div class="radio-div-2">
-                    <input type="radio" name="nivel" id="customRadio6" class="custom-control-input" value="3"><!---->
-                    <label for="customRadio6" class="custom-control-label">Superior</label>
-                </div>
+                    </div>
+                    <div>
 
-            </div>
-            <div>
-                <label for="formacao" class="title">Formação</label>
-                <input type="text" id="formacao" class="form-control" name="formacao">
-            </div>
-            <div>
-                <label for="exp" class="title">Experiência</label>
-                <input type="text" id="exp" class="form-control" name="experiencia">
-            </div>
-            <div>
-                <label for="descricao" class="title">Descrição</label>
-                <textarea id="descricao" class="form-control" name="descricao"></textarea>
-            </div>
+                        <label for="nome_cargo" id="nome_cargo" class="title">Nome
+                            do cargo</label>
+                        <input type="text" class="form-control"
+                            name="nome_cargo">
 
-            <div class="input-btn">
-                <input type="submit" name="enviar" value="Enviar" class="button btn-block">
-            </div>
+                    </div>
 
-        </fieldset>
-    </form>
-</body>
+                    <div>
+                        <label for="valor_hora" class="title">Valor básico /
+                            hora</label>
+                        <input type="number" class="form-control"
+                            name="valor_hora">
+                    </div>
+
+                    <div id="cargo_especialidade_hid">
+                        <label for="especialidade"
+                            id="label_cargo_especialidade" class="title"></label>
+                        <select id="especialidade" name="especialidade"
+                            class="form-control"><!--atuali-->
+                            <option hidden value="default"
+                                id="cargo_especialidade_placeholder">selecione
+                                um cargo</option>
+                            <option value="valor1">programador</option>
+                            <option value="valor2">despenceiro</option>
+                            <option value="valor3">motorista</option>
+                        </select>
+
+                    </div>
+
+                    <div class="title">
+                        <label class="title">Nível</label>
+                    </div>
+                    <div class="custom-control custom-radio tipo">
+                        <div class="radio-div-2">
+                            <input type="radio" name="nivel" id="customRadio4"
+                                class="custom-control-input"
+                                value="1"><!---->
+                            <label for="customRadio4"
+                                class="custom-control-label">Fundamental</label>
+                        </div>
+
+                        <div class="radio-div-2">
+                            <input type="radio" name="nivel" id="customRadio5"
+                                class="custom-control-input"
+                                value="2"><!---->
+                            <label for="customRadio5"
+                                class="custom-control-label">Médio</label>
+                        </div>
+
+                        <div class="radio-div-2">
+                            <input type="radio" name="nivel" id="customRadio6"
+                                class="custom-control-input"
+                                value="3"><!---->
+                            <label for="customRadio6"
+                                class="custom-control-label">Superior</label>
+                        </div>
+
+                    </div>
+                    <div>
+                        <label for="formacao" class="title">Formação</label>
+                        <input type="text" id="formacao" class="form-control"
+                            name="formacao">
+                    </div>
+                    <div>
+                        <label for="exp" class="title">Experiência</label>
+                        <input type="text" id="exp" class="form-control"
+                            name="experiencia">
+                    </div>
+                    <div>
+                        <label for="descricao" class="title">Descrição</label>
+                        <textarea id="descricao" class="form-control"
+                            name="descricao"></textarea>
+                    </div>
+
+                    <div class="input-btn">
+                        <input type="submit" name="enviar" value="Enviar"
+                            class="button btn-block">
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+    </body>
 
 </html>
